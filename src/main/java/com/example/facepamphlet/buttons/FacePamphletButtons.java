@@ -1,8 +1,14 @@
-package com.example.facepamphlet;
+package com.example.facepamphlet.buttons;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
+
+import com.example.facepamphlet.ActionButton;
+import com.example.facepamphlet.FacePamphletCanvas;
+import com.example.facepamphlet.FacePamphletDatabase;
+import com.example.facepamphlet.FacePamphletProfile;
+import com.example.facepamphlet.SharedData;
 
 import acm.graphics.GImage;
 import acm.program.Program;
@@ -243,39 +249,4 @@ public class FacePamphletButtons {
     		}
 		}
 	}
-	public static class AdministrationButton extends ActionButton {
-		public AdministrationButton(Program program, SharedData data) {
-			super(program, data);
-		}
-		@Override
-		public String getText() {
-			return "Administration Page";
-		}
-		@Override
-		public String getPlacement() {
-			return Program.NORTH;
-		}
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-	public static class ResumeButton extends ActionButton {
-		public ResumeButton(Program program, SharedData data) {
-			super(program, data);
-		}
-		@Override
-		public String getText() {
-			return "Work and Education";
-		}
-		@Override
-		public String getPlacement() {
-			return Program.NORTH;
-		}
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-
 }

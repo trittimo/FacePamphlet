@@ -16,14 +16,13 @@ import java.util.HashMap;
 
 import javax.swing.*;
 
-import com.example.facepamphlet.FacePamphletButtons.AddButton;
-import com.example.facepamphlet.FacePamphletButtons.AdministrationButton;
-import com.example.facepamphlet.FacePamphletButtons.DeleteButton;
-import com.example.facepamphlet.FacePamphletButtons.FriendButton;
-import com.example.facepamphlet.FacePamphletButtons.LookupButton;
-import com.example.facepamphlet.FacePamphletButtons.PictureButton;
-import com.example.facepamphlet.FacePamphletButtons.ResumeButton;
-import com.example.facepamphlet.FacePamphletButtons.StatusButton;
+import com.example.facepamphlet.buttons.*;
+import com.example.facepamphlet.buttons.FacePamphletButtons.AddButton;
+import com.example.facepamphlet.buttons.FacePamphletButtons.DeleteButton;
+import com.example.facepamphlet.buttons.FacePamphletButtons.FriendButton;
+import com.example.facepamphlet.buttons.FacePamphletButtons.LookupButton;
+import com.example.facepamphlet.buttons.FacePamphletButtons.PictureButton;
+import com.example.facepamphlet.buttons.FacePamphletButtons.StatusButton;
 
 public class FacePamphlet extends Program  {
 
@@ -80,6 +79,7 @@ public class FacePamphlet extends Program  {
 		data.setData("friendField", friend);
 		data.setData("database", new FacePamphletDatabase());
 		data.setData("canvas", this.canvas);
+		data.setData("program", this);
 		
 		// Add the buttons/fields/etc. to the program
 		add(new JLabel("Name "), NORTH);

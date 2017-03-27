@@ -93,4 +93,12 @@ public class FacePamphletDatabase {
 		}
 	}
 
+	public List<FacePamphletProfile> getProfiles() {
+		List<FacePamphletProfile> prof = new ArrayList<>();
+		for (String key : this.profiles.keySet()) {
+			prof.add(this.profiles.get(key));
+		}
+		return prof;
+	}
+	
 }
