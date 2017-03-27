@@ -12,6 +12,8 @@ package com.example.facepamphlet;
 import acm.graphics.*;
 import java.util.*;
 
+import javax.swing.JTextField;
+
 import com.google.common.collect.EvictingQueue;
 
 public class FacePamphletProfile {
@@ -25,6 +27,7 @@ public class FacePamphletProfile {
 	// Evicting queue of size 1000.  FIFO built-in.
 	private Queue<String> pastStatuses = EvictingQueue.create(1000);
 	private List<String> friends = new ArrayList<String>();
+	private List<ResumeItem> resume = new ArrayList<>();
 	
 	/** 
 	 * Constructor
@@ -124,6 +127,20 @@ public class FacePamphletProfile {
 	 */ 
 	public Iterator<String> getFriends() {
 		return this.friends.iterator();
+	}
+	
+	public void addResumeItem(ResumeItem item) {
+		this.resume.add(item);
+	}
+	
+	public List<ResumeItem> getResumeByType(String type) {
+		List<ResumeItem> list = new ArrayList<ResumeItem>();
+		for (ResumeItem item : this.resume) {
+			if (item.type.equals(type)) {
+				list.add(item);
+			}
+		}
+		return list;
 	}
 	
 	/** 

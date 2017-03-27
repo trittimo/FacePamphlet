@@ -24,11 +24,13 @@ import com.example.facepamphlet.buttons.FacePamphletButtons.LookupButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.PictureButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.StatusButton;
 
+/*
+ * Refactored -- This class
+ * Reason -- It was a huge mess of if/else statements
+ * 
+ */
 public class FacePamphlet extends Program  {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 133276188638963785L;
 	
 	private FacePamphletCanvas canvas = new FacePamphletCanvas();
@@ -97,6 +99,7 @@ public class FacePamphlet extends Program  {
 		add(friendButton.getButton(), friendButton.getPlacement());
 		add(administrationButton.getButton(), administrationButton.getPlacement());
 		add(resumeButton.getButton(), resumeButton.getPlacement());
+		
 		
 		// Add action listeners to the program
 		addActionListeners();

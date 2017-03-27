@@ -26,12 +26,16 @@ public class AdministrationButton extends ActionButton {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Program program = data.getData("program", Program.class);
+		FacePamphletProfile current = data.getData("currentProfile", FacePamphletProfile.class);
+		if (current == null) {
+			return;
+		}
+		
 		FacePamphletCanvas canvas = data.getData("canvas", FacePamphletCanvas.class);
 		canvas.removeAll();
 		if (this.button.getText().equals("Return to User Profile")) {
 			this.button.setText("Administration Page");
-			canvas.displayProfile(data.getData("currentProfile", FacePamphletProfile.class));
+			canvas.displayProfile(current);
 		} else {
 			this.button.setText("Return to User Profile");
 			
