@@ -2,6 +2,11 @@ package com.example.facepamphlet;
 
 import java.io.Serializable;
 
+/*
+ * Feature -- Resume stuff
+ * Changed -- This entire class
+ * Associated refactoring -- no refactoring associated
+ */
 public class ResumeItem implements Serializable {
 	public String dateStart;
 	public String dateEnd;

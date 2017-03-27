@@ -22,6 +22,17 @@ import com.google.common.collect.EvictingQueue;
 
 import acm.graphics.GImage;
 
+/*
+ * Feature -- added support for serialization
+ * Changed -- just two methods: writeObject/readObject
+ * Refactoring associated -- no refactoring necessary
+ */
+
+/*
+ * Feature -- added resume items
+ * Changed -- just added a few methods/variables for getting/setting the resume
+ * Refactoring associated -- none
+ */
 public class FacePamphletProfile implements Serializable {
 	
 	/* Private instance variables*/

@@ -28,13 +28,14 @@ import acm.program.Program;
 
 /*
  * Refactored -- This class
- * Reason -- It was a huge mess of if/else statements
- * Main type of refactoring done -- 
+ * Reason -- It was a huge mess of if/else statements (long method/large class)
+ * Main type of refactoring done -- Extract method, replace data value with object (strategy pattern)
  */
 
 /*
- * Feature -- Added buttons for adding/viewing a resume, viewing the admin page, and pre-filling with some data
- *            Only like 6 lines of added code from the original refactor
+ * Feature -- Added buttons for adding/viewing a resume, viewing the admin page, pre-filling with some data
+ *            and saving the current database to a file
+ *            Only like 8 lines of added code from the original refactor
  * Changed -- Didn't have to change any code from the original refactor
  */
 public class FacePamphlet extends Program  {
