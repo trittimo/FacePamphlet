@@ -1,9 +1,8 @@
 package com.example.facepamphlet;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.Serializable;
 
-public class ResumeItem {
+public class ResumeItem implements Serializable {
 	public String dateStart;
 	public String dateEnd;
 	public String place;

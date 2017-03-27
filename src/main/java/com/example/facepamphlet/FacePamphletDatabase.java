@@ -7,9 +7,10 @@ package com.example.facepamphlet;
  * sensitive, so that "ALICE" and "alice" are NOT the same name.
  */
 
+import java.io.Serializable;
 import java.util.*;
 
-public class FacePamphletDatabase {
+public class FacePamphletDatabase implements Serializable {
 	
 	/* private instance variables */
 	private Map<String, FacePamphletProfile> profiles = new HashMap<String, FacePamphletProfile>();
@@ -100,5 +101,7 @@ public class FacePamphletDatabase {
 		}
 		return prof;
 	}
+	
+	
 	
 }

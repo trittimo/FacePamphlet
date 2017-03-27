@@ -6,7 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.example.facepamphlet.ActionButton;
 import com.example.facepamphlet.FacePamphletCanvas;
 import com.example.facepamphlet.FacePamphletProfile;
 import com.example.facepamphlet.ResumeItem;
@@ -75,8 +74,6 @@ public class ResumeButton extends ActionButton {
 			canvas.add(typeField, canvas.getWidth()/2, TOP_MARGIN + 60);
 			canvas.add(placeField, canvas.getWidth()/2, TOP_MARGIN + 90);
 			canvas.add(addItemButton.getButton(), canvas.getWidth()/2, TOP_MARGIN + 120);
-			
-			addItemButton.getButton().addActionListener(addItemButton);
 		}
 	}
 }

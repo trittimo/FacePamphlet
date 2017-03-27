@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
 
-import com.example.facepamphlet.ActionButton;
 import com.example.facepamphlet.FacePamphletCanvas;
 import com.example.facepamphlet.FacePamphletDatabase;
 import com.example.facepamphlet.FacePamphletProfile;

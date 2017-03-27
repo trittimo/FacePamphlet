@@ -1,10 +1,11 @@
-package com.example.facepamphlet;
+package com.example.facepamphlet.buttons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import com.example.facepamphlet.SharedData;
 import com.sun.istack.internal.NotNull;
 
 import acm.program.Program;
@@ -19,6 +20,7 @@ public abstract class ActionButton implements ActionListener {
 		this.program = program;
 		this.data = data;
 		this.button = new JButton(getText()); 
+		this.button.addActionListener(this);
 	}
 	
 	public JButton getButton() {

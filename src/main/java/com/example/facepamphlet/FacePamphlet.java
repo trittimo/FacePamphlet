@@ -6,39 +6,40 @@ package com.example.facepamphlet;
  * management system.
  */
 
-import static com.example.facepamphlet.FacePamphletConstants.*;
+import static com.example.facepamphlet.FacePamphletConstants.EMPTY_LABEL_TEXT;
+import static com.example.facepamphlet.FacePamphletConstants.TEXT_FIELD_SIZE;
 
-import acm.program.*;
-import acm.graphics.*;
-import acm.util.*;
-import java.awt.event.*;
-import java.util.HashMap;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-import javax.swing.*;
-
-import com.example.facepamphlet.buttons.*;
+import com.example.facepamphlet.buttons.ActionButton;
+import com.example.facepamphlet.buttons.AdministrationButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.AddButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.DeleteButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.FriendButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.LookupButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.PictureButton;
 import com.example.facepamphlet.buttons.FacePamphletButtons.StatusButton;
+import com.example.facepamphlet.buttons.PrefillButton;
+import com.example.facepamphlet.buttons.ResumeButton;
+import com.example.facepamphlet.buttons.SaveButton;
+
+import acm.program.Program;
 
 /*
  * Refactored -- This class
  * Reason -- It was a huge mess of if/else statements
- * 
+ * Main type of refactoring done -- 
+ */
+
+/*
+ * Feature -- Added buttons for adding/viewing a resume, viewing the admin page, and pre-filling with some data
+ *            Only like 6 lines of added code from the original refactor
+ * Changed -- Didn't have to change any code from the original refactor
  */
 public class FacePamphlet extends Program  {
 
-	private static final long serialVersionUID = 133276188638963785L;
-	
-	private FacePamphletCanvas canvas = new FacePamphletCanvas();
-	
-	//keeps track of the current profile
-	private FacePamphletProfile currentProfile = null;
-	
-	private HashMap<JButton, ActionButton> buttonMap = new HashMap<>();
+	private static final long serialVersionUID = 133276188638963785L;	
 	
 	/**
 	 * This method has the responsibility for initializing the 
@@ -50,6 +51,7 @@ public class FacePamphlet extends Program  {
 		SharedData data = new SharedData();
 		
 		// All of our buttons
+		ActionButton prefillButton = new PrefillButton(this, data);
 		ActionButton addButton = new AddButton(this, data);
 		ActionButton deleteButton = new DeleteButton(this, data);
 		ActionButton lookupButton = new LookupButton(this, data);
@@ -58,15 +60,7 @@ public class FacePamphlet extends Program  {
 		ActionButton friendButton = new FriendButton(this, data);
 		ActionButton administrationButton = new AdministrationButton(this, data);
 		ActionButton resumeButton = new ResumeButton(this, data);
-		
-		buttonMap.put(addButton.getButton(), addButton);
-		buttonMap.put(deleteButton.getButton(), deleteButton);
-		buttonMap.put(lookupButton.getButton(), lookupButton);
-		buttonMap.put(statusButton.getButton(), statusButton);
-		buttonMap.put(pictureButton.getButton(), pictureButton);
-		buttonMap.put(friendButton.getButton(), friendButton);
-		buttonMap.put(administrationButton.getButton(), administrationButton);
-		buttonMap.put(resumeButton.getButton(), resumeButton);
+		ActionButton saveButton = new SaveButton(this, data);
 		
 		
 		JTextField name = new JTextField(TEXT_FIELD_SIZE);
@@ -75,15 +69,19 @@ public class FacePamphlet extends Program  {
 		JTextField friend = new JTextField(TEXT_FIELD_SIZE);
 		
 		// Setup shared data
+		FacePamphletCanvas canvas = new FacePamphletCanvas();
+		
 		data.setData("nameField", name);
 		data.setData("statusField", status);
 		data.setData("pictureField", picture);
 		data.setData("friendField", friend);
 		data.setData("database", new FacePamphletDatabase());
-		data.setData("canvas", this.canvas);
+		data.setData("canvas", canvas);
 		data.setData("program", this);
 		
 		// Add the buttons/fields/etc. to the program
+		add(prefillButton.getButton(), prefillButton.getPlacement());
+		add(saveButton.getButton(), saveButton.getPlacement());
 		add(new JLabel("Name "), NORTH);
 		add(name, NORTH);
 		add(addButton.getButton(), addButton.getPlacement());
@@ -108,16 +106,7 @@ public class FacePamphlet extends Program  {
 		picture.addActionListener(pictureButton);
 		friend.addActionListener(friendButton);
 		
-		add(this.canvas);
+		add(canvas);
 		this.setSize(1200,900);
-    }
-	
-    @Override
-	public void actionPerformed(ActionEvent e) {
-    	if (buttonMap.containsKey(e.getSource())) {
-    		buttonMap.get(e.getSource()).actionPerformed(e);
-    	} else {
-    		System.out.println("There is no button associated with the action");
-    	}
     }
 }

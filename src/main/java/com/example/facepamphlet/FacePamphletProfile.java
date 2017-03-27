@@ -9,14 +9,20 @@ package com.example.facepamphlet;
  * and a list of friends.
  */
 
-import acm.graphics.*;
-import java.util.*;
-
-import javax.swing.JTextField;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Queue;
 
 import com.google.common.collect.EvictingQueue;
 
-public class FacePamphletProfile {
+import acm.graphics.GImage;
+
+public class FacePamphletProfile implements Serializable {
 	
 	/* Private instance variables*/
 	private String Name = "";
@@ -141,6 +147,27 @@ public class FacePamphletProfile {
 			}
 		}
 		return list;
+		
+	}
+	
+	private void writeObject(ObjectOutputStream stream) throws IOException {
+		stream.writeObject(friends);
+		stream.writeObject(Name);
+		stream.writeObject(Status);
+		stream.writeBoolean(statusSet);
+		stream.writeObject(pastStatuses);
+		stream.writeObject(friends);
+		stream.writeObject(resume);
+	}
+	
+	private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+		friends = (List<String>) stream.readObject();
+		Name = (String) stream.readObject();
+		Status = (String) stream.readObject();
+		statusSet = stream.readBoolean();
+		pastStatuses = (Queue<String>) stream.readObject();
+		friends = (List<String>) stream.readObject();
+		resume = (List<ResumeItem>) stream.readObject();
 	}
 	
 	/** 

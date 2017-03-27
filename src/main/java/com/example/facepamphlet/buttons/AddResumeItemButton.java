@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-import com.example.facepamphlet.ActionButton;
 import com.example.facepamphlet.FacePamphletProfile;
 import com.example.facepamphlet.ResumeItem;
 import com.example.facepamphlet.SharedData;
